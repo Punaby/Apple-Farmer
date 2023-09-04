@@ -1,22 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Canvas</title>
-	<style>
-.arrow{
-visibility:hidden; 
-}
-@media (max-width:1000px){
-.arrow{
-visibility:visible;
-height:100px;
-width:100px;
-}
-}
-
-</style>
 </head>
 <body>
 <canvas id="canvas" width="750" height="400"></canvas>
@@ -26,10 +11,6 @@ width:100px;
 <button id="d" class="arrow">⬇</button>
 <button id="e" >reset</button>
 <script src="code.jquery.com_jquery-2.1.0.js"></script>
-	var awww=$("#a").width
-	var screenWidth=window.outerWidth
-        var screenHeight=window.outerHeight
-	aww=screenWidlth/2
  var canvas= document.getElementById("canvas");
  var ctx = canvas.getContext("2d")
  var width=canvas.width
@@ -37,7 +18,8 @@ width:100px;
  // score=x,yo=y
  var score=0;
  var yo=0;
-
+height=window.innerHeight/2
+width=window.innerWidth	
    function drawBorder(){
   ctx.fillStyle="Gray";
   ctx.fillRect(0,0,500,10)
