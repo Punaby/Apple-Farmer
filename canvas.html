@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Canvas</title>
+<style>
+.canvas{
+width:50%;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas" class="canvas" width="750" height="400"></canvas>
+<button id="a" class="arrow" >⬅</button>
+<button id="b" class="arrow">➡</button>
+<button id="c" class="arrow">⬆</button>
+<button id="d" class="arrow">⬇</button>
+<button id="e" >reset</button>
+<script src="code.jquery.com_jquery-2.1.0.js"></script>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+ var canvas= document.getElementById("canvas");
+ var ctx = canvas.getContext("2d")
+ var width=canvas.width
+ var height=canvas.height
+ // score=x,yo=y
+ var score=0;
+ var yo=0;
+   // interval
+ var interval=setInterval(function() {
+
+  ctx.clearRect(0,0,750,400)
+   drawBorder();
+   square();
+   circle(65,130,5,true,false);
+   circle(65,320,5,true,false);
+   circle(240,240,5,true,false);
+   circle(295,95,5,true,false);
+   circle(405,180,5,true,false);
+   circle(330,335,5,true,false); 
+   circle(190,140,5,true,false);
+   circle(150,250,5,true,false);
+   circle(380,70,5,true,false)
+   motto();
+   checkCollisionWALL();
+    CheckPOIScol(330,335)
+    CheckPOIScol(150,250);
+    CheckPOIScol(65,320);
+    CheckPOIScol(240,240);
+	CheckPOIScol(295,95);
+	CheckPOIScol(405,180);
+	CheckPOIScol(65,130);
+	CheckPOIScol(190,140);
+	CheckPOIScol(380,70);
+    CheckAPPLcol(Apple.x,Apple.y)	
+	Apple.draw();
+	},10)
+	
+	var interval4apple=setInterval(function(){
+	Apple.VERI();
+	Apple.draw();
+	},3000)
+	//making game compatible on mobile: press and hold of buttons
+	var timer = null;
+$("#a").on('touchstart',function(event){
+ timer = setInterval(function() {
+   a();
+ }, 45);
+});
+
+$("#a").on('touchend',function(event){ 
+ clearInterval(timer); 
+});
+
+	var timer1 = null;
+$("#b").on('touchstart',function(event){
+ timer1 = setInterval(function() {
+   b();
+ }, 45);
+});
+
+$("#b").on('touchend',function(event){ 
+ clearInterval(timer1); 
+});
+	var timer2 = null;
+$("#c").on('touchstart',function(event){
+ timer2 = setInterval(function() {
+   c();
+ }, 45);
+});
+
+$("#c").on('touchend',function(event){ 
+ clearInterval(timer2); 
+});
+	var timer = null;
+$("#d").on('touchstart',function(event){
+ timer = setInterval(function() {
+   d();
+ }, 45);
+});
+
+$("#d").on('touchend',function(event){ 
+ clearInterval(timer); 
+});
+// diagnol moving circle
+var square = function(){
+ctx.fillStyle="blue";
+     circle(score,yo,5.5,false);
+	   yo+=0.33333333333
+score+=0.33333333333 
+};
+  // checking for collision with wall
+function checkCollisionWALL(){
+if(score<10){
+score=490; 
+}else if(score>490){
+score=10
+}
+
+if(yo<10){
+yo=390;
+}else if(yo>390){
+yo=10;
+}
+}
+// poison checking
+function CheckPOIScol(cir2x,cir2y) {
+var dx= cir2x-score;
+var dy= cir2y-yo;
+var distance= Math.sqrt(dx*dx+dy*dy);
+var sumofRadii=5.5+5;
+
+if(distance<sumofRadii){
+gameOver();
+} else if (distance===sumofRadii){
+alert("collision")
+  }
+ }
+// apple checking
+function CheckAPPLcol(cir2x,cir2y) {
+var dx= cir2x-score;
+var dy= cir2y-yo;
+var distance= Math.sqrt(dx*dx+dy*dy);
+var sumofRadii=5.5+10;
+
+if(distance<sumofRadii){
+Apple.VERI();
+Apple.draw();
+scoreOfPoints+=5
+} else if (distance===sumofRadii){
+Apple.VERI();
+Apple.draw();
+scoreOfPoints+=5
+  }
+ }
+
+  // game over function
+  function gameOver(){
+     ctx.font="50px Helvitica";
+   ctx.fillStyle="red"
+	 ctx.fillText("Game Over!",360,200);
+	 ctx.font="25px Helvitica";
+	 ctx.fillStyle="gray";
+	 ctx.fillText("Click the reset button to reset",385,220);
+	 clearInterval(interval)
+	 clearInterval(interval4apple)
+	  }
+  
+  // screen input
+ function a(){
+  score-=5
+}
+function b(){
+score+=5
+}
+
+function c(){
+yo-=5
+}
+
+function d(){
+yo+=5
+}
+$("#a").click(a)
+$("#b").click(b)
+$("#c").click(c)
+$("#d").click(d)
+$("#e").click(reload)
+
+//keyboard input
+function setDirection(direction){
+if(direction==="up"){
+c();
+}else if(direction==="down"){
+d();
+}else if(direction==="left"){
+a();
+}else if(direction==="right"){
+b();
+}
+};
+var keyActions={
+37:"left",
+38:"up",
+39:"right",
+40:"down",
+87:"up",
+65:"left",
+83:"down",
+68:"right"
+};
+
+$("body").keydown(function (event) {
+var direction=keyActions[event.keyCode];
+setDirection(direction);
+});
+
+  // reload
+  function reload(){
+  location.reload()
+  };
+  
+// score
+var motto= function(){
+ctx.font="20px arial";
+ctx.fillStyle="maroon";
+ctx.textAlign="right";
+ctx.fillText("Don't touch the poison!",750,50)
+ctx.fillStyle="limegreen"
+ctx.fillText("Grab apples for points!",750,70)
+ctx.fillText("Score: "+scoreOfPoints,700,90)
+}
+
+var scoreOfPoints=0;
+function apple(){
+var thisish=Math.random()*200;
+var thisis=Math.random()*200;
+circle(thisish,thisis,10,false)
+}
+// apple function(s)
+function applex(){
+var xapple= Math.random()*490
+return(xapple)
+}
+
+function appley(){
+var yapple= Math.random()*390
+return(yapple)
+}
+
+var apple=  function(){
+this.x;
+this.y;
+}
+
+apple.prototype.VERI= function(){
+this.y=appley();
+this.x=applex();
+};
+apple.prototype.draw=function(){
+circle(this.x,this.y,10,false,true)
+}
+var Apple= new apple();
+
+  //Draw border
+   function drawBorder(){
+  ctx.fillStyle="Gray";
+  ctx.fillRect(0,0,500,10)
+  ctx.fillRect(0,390,500,10)
+  ctx.fillRect(0,0,10,400)
+  ctx.fillRect(490,0,10,400)
+} 
+
+//circle function
+function circle(x,y,radius,fillCircle,apple){
+ctx.beginPath();
+ctx.arc(x,y,radius,0,Math.PI*2,null)
+if(fillCircle){
+ctx.fillStyle="maroon"
+ctx.fill();
+} else if(apple){
+ctx.fillStyle=" limegreen";
+ctx.fill();
+}else{
+ctx.fillStyle="blue";
+ctx.fill();
+}
+}
+</script>
+<a href="canvasRules.html"><button>?</button></a>
+</body>
+</html>
