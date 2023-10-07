@@ -29,6 +29,11 @@ margin-right:50px;
  var ctx = canvas.getContext("2d")
  var width=canvas.width
  var height=canvas.height
+ // making game easier on mobile devices
+  if(width<=1000){
+  Xvelocity=score+=.01
+  Yvelocity=yo+=0.1
+  }
  // score=x,yo=y
  var score=0;
  var yo=0;
@@ -85,7 +90,7 @@ $("#b").on('touchstart',function(event){
  }, 45);
 });
 
-$("#b").on('touchend',function(event){ 
+$("#b").on('touchnd',function(event){ 
  clearInterval(timer1); 
 });
 	var timer2 = null;
@@ -112,8 +117,8 @@ $("#d").on('touchend',function(event){
 var square = function(){
 ctx.fillStyle="blue";
      circle(score,yo,5.5,false);
-	   yo+=0.33333333333
-score+=0.33333333333 
+	  Yvelocity = yo+=0.33333333333
+ Xvelocity = score+=0.33333333333 
 };
   // checking for collision with wall
 function checkCollisionWALL(){
