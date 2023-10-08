@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,17 +122,13 @@ yo+=0.33333333333
   }
 };
   // checking for collision with wall	
+	setTimeout(checkCollisionWall,10);
 function checkCollisionWALL(){
-setTimeout(xAxisWallCheck,10);
-function xAxisWallCheck(){
 if(score<10){  
 score+=10; 
 }else if(score>490){
 score-=10
 }
-}
-setTimeout(yAxisWallCheck,10);	
-function (yAxisWallCheck(){	
 if(yo<10){
 yo+=390;
 }else if(yo>390){
