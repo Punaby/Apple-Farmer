@@ -113,16 +113,12 @@ var square = function(){
 ctx.fillStyle="blue";
      circle(score,yo,5.5,false);
 	 // making game easier on mobile devices
-  if(width<=1000){
-  score+=0.1
-  yo+=0.1
-  }else{
 yo+=0.33333333333
  score+=0.33333333333 
-  }
+
 };
   // checking for collision with wall	
-//setTimeout(checkCollisionWALL,10)
+setTimeout(checkCollisionWALL,10)
 function checkCollisionWALL(){
 if(score<10){  
 score-=10; 
