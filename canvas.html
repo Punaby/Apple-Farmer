@@ -29,11 +29,6 @@ margin-right:50px;
  var ctx = canvas.getContext("2d")
  var width=canvas.width
  var height=canvas.height
- // making game easier on mobile devices
-  if(width<=1000){
-  score+=0.000001
-  yo+=0.00001
-  }
  // score=x,yo=y
  var score=0;
  var yo=0;
@@ -117,21 +112,27 @@ $("#d").on('touchend',function(event){
 var square = function(){
 ctx.fillStyle="blue";
      circle(score,yo,5.5,false);
-	  Yvelocity = yo+=0.33333333333
- Xvelocity = score+=0.33333333333 
+	 // making game easier on mobile devices
+  if(width<=1000){
+  score+=0.000001
+  yo+=0.00001
+  }else{
+yo+=0.33333333333
+ score+=0.33333333333 
+  }
 };
   // checking for collision with wall
 function checkCollisionWALL(){
-if(score<10){
-score=490; 
+if(score<10){  
+score+=10; 
 }else if(score>490){
-score=10
+score-=10
 }
 
 if(yo<10){
-yo=390;
+yo+=390;
 }else if(yo>390){
-yo=10;
+yo-=10;
 }
 }
 // poison checking
