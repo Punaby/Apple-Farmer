@@ -68,44 +68,44 @@ margin-right:50px;
 	},3000)
 	//making game compatible on mobile: press and hold of buttons
 	var timer = null;
-$("#a").on('touchstart',function(event){
+$("#a").on('touchstart',function(){
  timer = setInterval(function() {
    a();
  }, 45);
 });
 
-$("#a").on('touchend',function(event){ 
+$("#a").on('touchend',function(){ 
  clearInterval(timer); 
 });
 
 	var timer1 = null;
-$("#b").on('touchstart',function(event){
+$("#b").on('touchstart',function(){
  timer1 = setInterval(function() {
    b();
  }, 45);
 });
 
-$("#b").on('touchnd',function(event){ 
+$("#b").on('touchnd',function(){ 
  clearInterval(timer1); 
 });
 	var timer2 = null;
-$("#c").on('touchstart',function(event){
+$("#c").on('touchstart',function(){
  timer2 = setInterval(function() {
    c();
  }, 45);
 });
 
-$("#c").on('touchend',function(event){ 
+$("#c").on('touchend',function(){ 
  clearInterval(timer2); 
 });
 	var timer3 = null;
-$("#d").on('touchstart',function(event){
+$("#d").on('touchstart',function(){
  timer = setInterval(function() {
    d();
  }, 45);
 });
 
-$("#d").on('touchend',function(event){ 
+$("#d").on('touchend',function(){ 
  clearInterval(timer3); 
 });
 // diagnol moving circle
