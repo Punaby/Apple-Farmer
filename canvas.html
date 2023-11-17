@@ -48,6 +48,7 @@ margin-right:50px;
    circle(150,250,5,true,false);
    circle(380,70,5,true,false)
    motto();
+	 checkCollisionWALL();
     CheckPOIScol(330,335)
     CheckPOIScol(150,250);
     CheckPOIScol(65,320);
@@ -65,7 +66,7 @@ margin-right:50px;
 	Apple.VERI();
 	Apple.draw();
 	},3000)
-	 checkCollisionWALL();
+
 	//making game compatible on mobile: press and hold of buttons
 	var timer = null;
 $("#a").on('touchstart',function(event){
