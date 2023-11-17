@@ -118,15 +118,23 @@ yo+=0.33333333333
 };
   // checking for collision with wall
 function checkCollisionWALL(){
-if(score<10){  
+if(score<10){
+for (let i=0;i===10;i++){
 score+=score; 
+}
 }else if(score>490){
+	for (let i=0;i===10;i++){
 score-=score;
+	}
 }
 if(yo<10){
+	for (let i=0;i===10;i++){
 yo+=score;
+	}
 }else if(yo>390){
+	for (let i=0;i===10;i++){
 yo-=score;
+	}
 }
 }
 // poison checking
