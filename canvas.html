@@ -121,17 +121,16 @@ yo+=0.33333333333
 function checkCollisionWALL(){
 if(score<10){
 for (let i=0;i===10;i++){
-score-=score; 
+score=490; 
 }
 }else if(score>490){
 	for (let i=0;i===10;i++){
-score+=score;
+score=0;
 	}
 }
 if(yo<10){
 	for (let i=0;i===10;i++){
-yo-=score;
-	}
+yo-=yo;
 }else if(yo>390){
 	for (let i=0;i===10;i++){
 yo+=score;
