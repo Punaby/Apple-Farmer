@@ -30,16 +30,6 @@ margin-right:50px;
  var width=canvas.width
  var height=canvas.height
 
-	   circle(65,130,5,true,false);
-   circle(65,320,5,true,false);
-   circle(240,240,5,true,false);
-   circle(295,95,5,true,false);
-   circle(405,180,5,true,false);
-   circle(330,335,5,true,false); 
-   circle(190,140,5,true,false);
-   circle(150,250,5,true,false);
-   circle(380,70,5,true,false);
-
  // score=x,yo=y
  var score=12;
  var yo=12;
@@ -49,6 +39,17 @@ margin-right:50px;
   ctx.clearRect(0,0,750,400)
    square();
 	 checkCollisionWALL();
+	 
+	   circle(65,130,5,true,false);
+   circle(65,320,5,true,false);
+   circle(240,240,5,true,false);
+   circle(295,95,5,true,false);
+   circle(405,180,5,true,false);
+   circle(330,335,5,true,false); 
+   circle(190,140,5,true,false);
+   circle(150,250,5,true,false);
+   circle(380,70,5,true,false);
+	 
     CheckPOIScol(330,335)
     CheckPOIScol(150,250);
     CheckPOIScol(65,320);
@@ -58,6 +59,7 @@ margin-right:50px;
 	CheckPOIScol(65,130);
 	CheckPOIScol(190,140);
 	CheckPOIScol(380,70);
+	 
     CheckAPPLcol(Apple.x,Apple.y)	
 	Apple.draw();
 	    motto();
