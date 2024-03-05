@@ -234,7 +234,7 @@ var Apple= new apple();
 
   //Draw border
    function drawBorder(){
-  ctx.fillStyle="Maroon";
+  ctx.fillStyle="red";
   ctx.fillRect(0,0,500,10)
   ctx.fillRect(0,390,500,10)
   ctx.fillRect(0,0,10,400)
@@ -246,7 +246,7 @@ function circle(x,y,radius,fillCircle,apple){
 ctx.beginPath();
 ctx.arc(x,y,radius,0,Math.PI*2,null)
 if(fillCircle){
-ctx.fillStyle="maroon"
+ctx.fillStyle="red"
 ctx.fill();
 } else if(apple){
 ctx.fillStyle=" limegreen";
