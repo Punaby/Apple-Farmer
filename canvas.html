@@ -29,16 +29,8 @@ margin-right:50px;
  var ctx = canvas.getContext("2d")
  var width=canvas.width
  var height=canvas.height
- // score=x,yo=y
- var score=12;
- var yo=12;
-   // interval
- var interval=setInterval(function() {
 
-  ctx.clearRect(0,0,750,400)
-   drawBorder();
-   square();
-   circle(65,130,5,true,false);
+	   circle(65,130,5,true,false);
    circle(65,320,5,true,false);
    circle(240,240,5,true,false);
    circle(295,95,5,true,false);
@@ -46,8 +38,17 @@ margin-right:50px;
    circle(330,335,5,true,false); 
    circle(190,140,5,true,false);
    circle(150,250,5,true,false);
-   circle(380,70,5,true,false)
+   circle(380,70,5,true,false);
    motto();
+   drawBorder();
+ // score=x,yo=y
+ var score=12;
+ var yo=12;
+   // interval
+ var interval=setInterval(function() {
+
+  ctx.clearRect(0,0,750,400)
+   square();
 	 checkCollisionWALL();
     CheckPOIScol(330,335)
     CheckPOIScol(150,250);
@@ -67,48 +68,6 @@ margin-right:50px;
 	Apple.draw();
 	},3000)
 
-	//making game compatible on mobile: press and hold of buttons
-	var timer = null;
-$("#a").on('touchstart',function(event){
- timer = setInterval(function() {
-   a();
- }, 45);
-});
-
-$("#a").on('touchend',function(event){ 
- clearInterval(timer); 
-});
-
-	var timer1 = null;
-$("#b").on('touchstart',function(event){
- timer1 = setInterval(function() {
-   b();
- }, 45);
-});
-
-$("#b").on('touchend',function(event){ 
- clearInterval(timer1); 
-});
-	var timer2 = null;
-$("#c").on('touchstart',function(event){
- timer2 = setInterval(function() {
-   c();
- }, 45);
-});
-
-$("#c").on('touchend',function(event){ 
- clearInterval(timer2); 
-});
-	var timer3 = null;
-$("#d").on('touchstart',function(event){
- timer = setInterval(function() {
-   d();
- }, 45);
-});
-
-$("#d").on('touchend',function(event){ 
- clearInterval(timer); 
-});
 // diagnol moving circle
 var square = function(){
 ctx.fillStyle="blue";
@@ -117,21 +76,21 @@ yo+=0.3
  score+=0.3
   
 };
+	
   // checking for collision with wall
 function checkCollisionWALL(){
 if(score<10){
-score=490; 
+gameOver(); 
 }else if(score>490){	
-score=0
+gameOver();
 }
 if(yo<10){	
-yo=390;
+gameOver();
 } else if(yo>390){
-	
-yo=0;
-	
+gameOver();
 }
 }
+	
 // poison checking
 function CheckPOIScol(cir2x,cir2y) {
 var dx= cir2x-score;
@@ -145,6 +104,7 @@ gameOver();
 alert("collision")
   }
  }
+	
 // apple checking
 function CheckAPPLcol(cir2x,cir2y) {
 var dx= cir2x-score;
@@ -174,8 +134,7 @@ scoreOfPoints+=5
 	 clearInterval(interval)
 	 clearInterval(interval4apple)
 	  }
-  
-  // screen input
+  //keyboard input
  function a(){
   score-=5
 }
@@ -196,7 +155,6 @@ $("#c").click(c)
 $("#d").click(d)
 $("#e").click(reload)
 
-//keyboard input
 function setDirection(direction){
 if(direction==="up"){
 c();
