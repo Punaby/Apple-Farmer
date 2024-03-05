@@ -113,8 +113,8 @@ $("#d").on('touchend',function(event){
 var square = function(){
 ctx.fillStyle="blue";
      circle(score,yo,5.5,false);
-yo+=0.16666666666
- score+=0.16666666666
+yo+=0.3
+ score+=0.3
   
 };
   // checking for collision with wall
@@ -177,18 +177,18 @@ scoreOfPoints+=5
   
   // screen input
  function a(){
-  score-=0.16666666666
+  score-=5
 }
 function b(){
-score+=0.16666666666
+score+=5
 }
 
 function c(){
-yo-=0.16666666666
+yo-=5
 }
 
 function d(){
-yo+=0.16666666666
+yo+=5
 }
 $("#a").click(a)
 $("#b").click(b)
