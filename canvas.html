@@ -14,7 +14,7 @@ background-color:blue;
 </style>
 </head>
 <body>
-<canvas id="canvas" class="canvas" width="800" height="400"></canvas>
+<canvas id="canvas" class="canvas" width="750" height="400"></canvas>
 	<div>
 <button id="e" class="arrow">reset</button>
 <a href="index.html" class="arrow"><button>How to play!</button></a>		
@@ -193,11 +193,12 @@ ctx.font="20px arial";
 ctx.fillStyle="maroon";
 ctx.textAlign="right";
 ctx.fillText("Don't touch the poison!",750,50)
-ctx.fillStyle="black"
-ctx.fillText("Don't touch to black hole borders",800,65)
 ctx.fillStyle="limegreen"
 ctx.fillText("Grab apples for points!",750,90)
 ctx.fillText("Score: "+scoreOfPoints,700,110)
+ctx.font="15px arial"
+ctx.fillStyle="black"
+ctx.fillText("Don't touch to black hole borders",750,65)
 }
 
 var scoreOfPoints=0;
