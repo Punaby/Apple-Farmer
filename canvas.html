@@ -5,8 +5,12 @@
 
 <title>Hungry Apple Farmer</title>
 <style>
+	body{
+		background-color:black
+	}
 .canvas{
 width:60%;
+	background-color:white
 }
 .arrow{
 background-color:blue;
@@ -197,7 +201,7 @@ ctx.fillStyle="limegreen"
 ctx.fillText("Grab apples for points!",750,90)
 ctx.fillText("Score: "+scoreOfPoints,700,110)
 ctx.font="15px arial"
-ctx.fillStyle="white"
+ctx.fillStyle="black"
 ctx.fillText("Don't fall into space!",750,65)
 }
 
@@ -238,7 +242,7 @@ var Apple= new apple();
   ctx.fillRect(0,0,500,10)
   ctx.fillRect(0,390,500,10)
   ctx.fillRect(0,0,10,400)
-  ctx.fillRect(490,0,800,400)
+  ctx.fillRect(490,0,10,400)
 } 
 
 //circle function
