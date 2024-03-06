@@ -8,6 +8,9 @@
 	body{
 		background-color:black
 	}
+  .c2{
+    width:30%
+  }
 .canvas{
 width:60%;
 	background-color:white
@@ -19,6 +22,7 @@ background-color:blue;
 </head>
 <body>
 <canvas id="canvas" class="canvas" width="750" height="400"></canvas>
+	<canvas id="C2" class="c2" width="500" height="400"></canvas>
 	<div>
 <button id="e" class="arrow">reset</button>
 <a href="index.html" class="arrow"><button>How to play!</button></a>		
@@ -27,13 +31,15 @@ background-color:blue;
 <script src="Jquery2.1.1"></script>
 <script>
  var canvas= document.getElementById("canvas");
+ var canvas2= document.getElementById("C2")
+ var c= canvas2.getContext("2d") 
  var ctx = canvas.getContext("2d")
  var width=canvas.width
  var height=canvas.height
 
  // score=x,yo=y
- var score=12;
- var yo=12;
+ var score=0;
+ var yo=0;
    // interval
  var interval=setInterval(function() {
 
@@ -83,12 +89,7 @@ yo+=0.3
 	
   // checking for collision with wall
 function checkCollisionWALL(){
-if(score<10){
-gameOver(); 
-}else if(score>490){	
-gameOver();
-}
-if(yo<10){	
+if(score>490){	
 gameOver();
 } else if(yo>390){
 gameOver();
@@ -193,15 +194,16 @@ setDirection(direction);
   
 // score
 var motto= function(){
-ctx.font="20px arial";
-ctx.fillStyle="maroon";
-ctx.textAlign="right";
-ctx.fillText("Don't touch the poison!",730,40)
-ctx.fillStyle="limegreen"
-ctx.fillText("Grab apples for points!",730,225)
-ctx.fillText("Score: "+scoreOfPoints,665,350)
-ctx.fillStyle="black"
-ctx.fillText("Don't fall into space!",717.5,130)
+c.font="20px arial";
+c.fillStyle="maroon";
+c.textAlign="right";
+c.fillText("Don't touch the poison!",730,40)
+c.fillStyle="limegreen"
+c.fillText("Grab apples for points!",730,225)
+  c.fillStyle="blue"
+c.fillText("Score: "+scoreOfPoints,665,350)
+c.fillStyle="white"
+c.fillText("Don't fall into space!",717.5,130)
 }
 
 var scoreOfPoints=0;
@@ -238,9 +240,7 @@ var Apple= new apple();
   //Draw border
    function drawBorder(){
   ctx.fillStyle="black";
-  ctx.fillRect(0,0,500,10)
   ctx.fillRect(0,390,500,10)
-  ctx.fillRect(0,0,10,400)
   ctx.fillRect(490,0,10,400)
 } 
 
