@@ -19,7 +19,6 @@ background-color:blue;
 </head>
 <body>
 <canvas id="canvas" class="canvas" width="700" height="400"></canvas>
-	<canvas id="C2" class="c2" width="500" height="400"></canvas>
 	<div>
 <button id="e" class="arrow">reset</button>
 <a href="index.html" class="arrow"><button>How to play!</button></a>		
@@ -28,8 +27,7 @@ background-color:blue;
 <script src="Jquery2.1.1"></script>
 <script>
  var canvas= document.getElementById("canvas");
- var canvas2= document.getElementById("C2")
- var ct= canvas2.getContext("2d") 
+
  var ctx = canvas.getContext("2d")
  var width=canvas.width
  var height=canvas.height
@@ -191,16 +189,16 @@ setDirection(direction);
   
 // score
 var motto= function(){
-ct.font="20px arial";
-ct.fillStyle="maroon";
-ct.textAlign="right";
-ct.fillText("Don't touch the poison!",730,40)
-ct.fillStyle="limegreen"
-ct.fillText("Grab apples for points!",730,225)
-ct.fillStyle="blue"
-ct.fillText("Score: "+scoreOfPoints,665,350)
-ct.fillStyle="white"
-ct.fillText("Don't fall into space!",717.5,130)
+ctx.font="20px arial";
+ctx.fillStyle="maroon";
+ctx.textAlign="right";
+ctx.fillText("Don't touch the poison!",730,40)
+ctx.fillStyle="limegreen"
+ctx.fillText("Grab apples for points!",730,225)
+ctx.fillStyle="blue"
+ctx.fillText("Score: "+scoreOfPoints,665,350)
+ctx.fillStyle="white"
+ctx.fillText("Don't fall into space!",717.5,130)
 }
 
 var scoreOfPoints=0;
