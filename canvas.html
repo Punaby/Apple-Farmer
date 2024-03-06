@@ -8,9 +8,6 @@
 	body{
 		background-color:black
 	}
-  .c2{
-    width:30%
-  }
 .canvas{
 width:60%;
 	background-color:white
@@ -21,7 +18,7 @@ background-color:blue;
 </style>
 </head>
 <body>
-<canvas id="canvas" class="canvas" width="750" height="400"></canvas>
+<canvas id="canvas" class="canvas" width="700" height="400"></canvas>
 	<canvas id="C2" class="c2" width="500" height="400"></canvas>
 	<div>
 <button id="e" class="arrow">reset</button>
@@ -32,7 +29,7 @@ background-color:blue;
 <script>
  var canvas= document.getElementById("canvas");
  var canvas2= document.getElementById("C2")
- var c= canvas2.getContext("2d") 
+ var ct= canvas2.getContext("2d") 
  var ctx = canvas.getContext("2d")
  var width=canvas.width
  var height=canvas.height
@@ -194,16 +191,16 @@ setDirection(direction);
   
 // score
 var motto= function(){
-c.font="20px arial";
-c.fillStyle="maroon";
-c.textAlign="right";
-c.fillText("Don't touch the poison!",730,40)
-c.fillStyle="limegreen"
-c.fillText("Grab apples for points!",730,225)
-  c.fillStyle="blue"
-c.fillText("Score: "+scoreOfPoints,665,350)
-c.fillStyle="white"
-c.fillText("Don't fall into space!",717.5,130)
+ct.font="20px arial";
+ct.fillStyle="maroon";
+ct.textAlign="right";
+ct.fillText("Don't touch the poison!",730,40)
+ct.fillStyle="limegreen"
+ct.fillText("Grab apples for points!",730,225)
+ct.fillStyle="blue"
+ct.fillText("Score: "+scoreOfPoints,665,350)
+ct.fillStyle="white"
+ct.fillText("Don't fall into space!",717.5,130)
 }
 
 var scoreOfPoints=0;
