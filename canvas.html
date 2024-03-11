@@ -72,7 +72,7 @@ background-color:blue;
 // diagnol moving circle
 var square = function(){
 ctx.fillStyle="blue";
-     circle(score,yo,5.5,false);
+     circle(score,yo,10,false);
 yo+=0.3
  score+=0.3
   
@@ -84,9 +84,9 @@ if(score<20){
 gameOver();
 } else if(yo<20){
 gameOver();	
-} else if(score>450){
+} else if(score>470){
 	gameOver();
-} else if(yo>450){
+} else if(yo>460){
 	gameOver();
 }
 }
@@ -96,7 +96,7 @@ function CheckPOIScol(cir2x,cir2y) {
 var dx= cir2x-score;
 var dy= cir2y-yo;
 var distance= Math.sqrt(dx*dx+dy*dy);
-var sumofRadii=5.5+5;
+var sumofRadii=10+5;
 
 if(distance<sumofRadii){
 gameOver();
@@ -110,7 +110,7 @@ function CheckAPPLcol(cir2x,cir2y) {
 var dx= cir2x-score;
 var dy= cir2y-yo;
 var distance= Math.sqrt(dx*dx+dy*dy);
-var sumofRadii=5.5+10;
+var sumofRadii=10+5;
 
 if(distance<sumofRadii){
 Apple.VERI();
@@ -207,7 +207,7 @@ var scoreOfPoints=0;
 function apple(){
 var thisish=Math.random()*200;
 var thisis=Math.random()*200;
-circle(thisish,thisis,10,false)
+circle(thisish,thisis,5,false)
 }
 // apple function(s)
 function applex(){
