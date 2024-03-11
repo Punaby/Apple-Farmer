@@ -29,8 +29,8 @@ background-color:blue;
  var height=canvas.height
 
  // score=x,yo=y
- var score=20;
- var yo=20;
+ var score=41;
+ var yo=41;
    // interval
  var interval=setInterval(function() {
 
@@ -80,9 +80,9 @@ yo+=0.3
 	
   // checking for collision with wall
 function checkCollisionWALL(){
-if(score<20){
+if(score<40){
 gameOver();
-} else if(yo<20){
+} else if(yo<40){
 gameOver();	
 } else if(score>470){
 	gameOver();
