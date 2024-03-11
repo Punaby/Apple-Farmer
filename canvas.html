@@ -14,7 +14,7 @@ background-color:blue;
 </style>
 </head>
 <body>
-<canvas id="canvas" class="canvas" width="800" height="500"></canvas>
+<canvas id="canvas" class="canvas" width="800" height="600"></canvas>
 	<div>
 <button id="e" class="arrow">reset</button>
 <a href="index.html" class="arrow"><button>How to play!</button></a>		
@@ -29,8 +29,8 @@ background-color:blue;
  var height=canvas.height
 
  // score=x,yo=y
- var score=0;
- var yo=0;
+ var score=20;
+ var yo=20;
    // interval
  var interval=setInterval(function() {
 
@@ -80,10 +80,14 @@ yo+=0.3
 	
   // checking for collision with wall
 function checkCollisionWALL(){
-if(score>490){	
+if(score<20){
 gameOver();
-} else if(yo>390){
-gameOver();
+} else if(yo<20){
+gameOver();	
+} else if(score>450){
+	gameOver();
+} else if(yo>450){
+	gameOver();
 }
 }
 	
@@ -230,9 +234,6 @@ circle(this.x,this.y,10,false,true)
 }
 var Apple= new apple();
 
-  //Draw border
-   function drawBorder(){
-} 
 
 //circle function
 function circle(x,y,radius,fillCircle,apple){
