@@ -6,7 +6,8 @@
 <title>Hungry Apple Farmer</title>
 <style>
 .canvas{
-	background-image:url("SpikesforGameOfficial.png")
+	background-image:url("Spikes.png")
+	width=50%
 }
 .arrow{
 background-color:blue;
@@ -34,7 +35,7 @@ background-color:blue;
    // interval
  var interval=setInterval(function() {
 
-  ctx.clearRect(0,0,750,400)
+  ctx.clearRect(0,0,800,500)
    square();
 	 checkCollisionWALL();
 	 
@@ -83,9 +84,9 @@ if(score<40){
 gameOver();
 } else if(yo<40){
 gameOver();	
-} else if(score>470){
+} else if(score>480){
 	gameOver();
-} else if(yo>460){
+} else if(yo>480){
 	gameOver();
 }
 }
