@@ -14,7 +14,7 @@ background-color:blue;
 </style>
 </head>
 <body>
-<canvas id="canvas" class="canvas" width="800" height="600"></canvas>
+<canvas id="canvas" class="canvas" width="800" height="500"></canvas>
 	<div>
 <button id="e" class="arrow">reset</button>
 <a href="index.html" class="arrow"><button>How to play!</button></a>		
@@ -29,12 +29,12 @@ background-color:blue;
  var height=canvas.height
 
  // score=x,yo=y
- var score=41;
- var yo=41;
+ var score=70;
+ var yo=70;
    // interval
  var interval=setInterval(function() {
 
-  ctx.clearRect(0,0,800,600)
+  ctx.clearRect(0,0,800,500)
    square();
 	 checkCollisionWALL();
 	 
@@ -79,13 +79,13 @@ yo+=0.3
 	
   // checking for collision with wall
 function checkCollisionWALL(){
-if(score<40){
+if(score<60){
 gameOver();
-} else if(yo<40){
+} else if(yo<60){
 gameOver();	
-} else if(score>480){
+} else if(score>475){
 	gameOver();
-} else if(yo>480){
+} else if(yo>475){
 	gameOver();
 }
 }
