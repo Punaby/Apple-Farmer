@@ -6,7 +6,7 @@
 <title>Hungry Apple Farmer</title>
 <style>
 .canvas{
-	background-image:url("Spikes.png")
+
 }
 .arrow{
 background-color:blue;
@@ -76,7 +76,14 @@ yo+=0.3
  score+=0.3
   
 };
-	
+	// draw border
+	function drawBorder(){
+    ctx.fillStyle="Grey"
+    ctx.beginPath();
+	  ctx.moveTo(10,10)
+    ctx.lineTo(12.5,20)
+		ctx.fill()
+	}
   // checking for collision with wall
 function checkCollisionWALL(){
 if(score<60){
