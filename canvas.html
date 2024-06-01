@@ -63,7 +63,7 @@ background-color:blue;
 	Apple.draw();
 	    motto();
 	 drawBorder();
-	},10)
+	},1)
 	
 	var interval4apple=setInterval(function(){
 	Apple.VERI();
@@ -91,20 +91,20 @@ ctx.fillRect(490,0,5,495)
 	var square = function(){
 ctx.fillStyle="blue";
      circle(score,yo,5.5,false);
-yo+=0.3
- score+=0.3
+yo+=0.03
+ score+=0.03
   
 };
 
   // checking for collision with wall
 	function checkCollisionWALL(){
-if(score<25){
+if(score<20){
 gameOver();
-} else if(yo<25){
+} else if(yo<20){
 gameOver();	
-} else if(score>485){
+} else if(score>470){
 	gameOver();
-} else if(yo>485){
+} else if(yo>470){
 	gameOver();
 }
 }
@@ -154,18 +154,18 @@ scoreOfPoints+=5
 	  }
   //keyboard input
 	 function a(){
-  score-=5
+  score-=.5
 }
 function b(){
-score+=5
+score+=.5
 }
 
 function c(){
-yo-=5
+yo-=.5
 }
 
 function d(){
-yo+=5
+yo+=.5
 }
 $("#a").click(a)
 $("#b").click(b)
