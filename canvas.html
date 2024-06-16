@@ -63,7 +63,7 @@ background-color:blue;
 	Apple.draw();
 	    motto();
 	 drawBorder();
-	},1)
+	},10)
 	
 	var interval4apple=setInterval(function(){
 	Apple.VERI();
@@ -91,8 +91,8 @@ ctx.fillRect(490,0,5,495)
 	var square = function(){
 ctx.fillStyle="blue";
      circle(score,yo,5.5,false);
-yo+=0.15
- score+=0.15
+yo+=0.3
+ score+=0.3
   
 };
 
@@ -154,18 +154,18 @@ scoreOfPoints+=5
 	  }
   //keyboard input
 	 function a(){
-  score-=2.5
+  score-=5
 }
 function b(){
-score+=2.5
+score+=5
 }
 
 function c(){
-yo-=2.5
+yo-=5
 }
 
 function d(){
-yo+=2.5
+yo+5
 }
 $("#a").click(a)
 $("#b").click(b)
