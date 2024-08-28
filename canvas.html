@@ -75,7 +75,7 @@
 	
 	var interval4apple=setInterval(function(){
 	Apple.VERI();
-	Apple.draw();
+	Apple.draw();	
 	},3000)
 function drawBorder(){
 	for(var i=0; i<48; i++){
@@ -160,17 +160,21 @@ scoreOfPoints+=5
   //keyboard input
 	 function a(){
   score-=5
+battery--
 }
 function b(){
 score+=5
+battery--
 }
 
 function c(){
 yo-=5
+battery--
 }
 
 function d(){
 yo+=5
+battery--	
 }
 $("#a").click(a)
 $("#b").click(b)
@@ -263,6 +267,8 @@ circle(this.x,this.y,10,false,true)
 }
 var Apple= new apple();
 
+//  battery function
+	var battery = 100
 
 //circle function
 function circle(x,y,radius,fillCircle,apple){
