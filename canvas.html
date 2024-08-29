@@ -71,6 +71,7 @@
 	Apple.draw();
 	    motto();
 	 drawBorder();
+	 battery()
 	},10)
 	
 	var interval4apple=setInterval(function(){
@@ -146,7 +147,7 @@ scoreOfPoints+=5
 Apple.VERI();
 Apple.draw();
 scoreOfPoints+=5
-battery+=10;
+//battery+=10;
   }
  }
 
@@ -161,21 +162,21 @@ battery+=10;
   //keyboard input
 	 function a(){
   score-=5
-battery--
+battery-=.1
 }
 function b(){
 score+=5
-battery--
+battery-=.1
 }
 
 function c(){
 yo-=5
-battery--
+battery-=.1
 }
 
 function d(){
 yo+=5
-battery--	
+battery-=.1	
 }
 $("#a").click(a)
 $("#b").click(b)
@@ -270,9 +271,14 @@ circle(this.x,this.y,10,false,true)
 }
 var Apple= new apple();
 
+var battery = 100
+	
 //  battery function
-	var battery = 100
-
+	function battery(){
+	if(battery<=0){
+	gameOver()	
+	}
+	}
 //circle function
 function circle(x,y,radius,fillCircle,apple){
 ctx.beginPath();
