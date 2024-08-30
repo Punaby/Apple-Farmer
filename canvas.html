@@ -1,4 +1,4 @@
-4 <!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
 <!--<script src="Jquery2.1.1"></script>-->
 <script>
  var canvas= document.getElementById("canvas");
-var battery = 100
+
  var ctx = canvas.getContext("2d")
  var width=canvas.width
  var height=canvas.height
@@ -66,23 +66,17 @@ var battery = 100
 	CheckPOIScol(190,140);
 	CheckPOIScol(380,70);
 
-/*  battery function
-	if(battery<=0){
-	gameOver()	
-	}*/
 	 
     CheckAPPLcol(Apple.x,Apple.y)	
 	Apple.draw();
 	    motto();
 	 drawBorder();
-	 battery()
 	},10)
 	
 	var interval4apple=setInterval(function(){
 	Apple.VERI();
-	Apple.draw();	
-	},30)
-	
+	Apple.draw();
+	},3000)
 function drawBorder(){
 	for(var i=0; i<48; i++){
 var r= i*10
@@ -100,8 +94,7 @@ ctx.fillRect(0,0,490,5)
 ctx.fillRect(0,490,490,5)
 ctx.fillRect(0,0,5,490)
 ctx.fillRect(490,0,5,495)
-}
-	
+}	  
 // diagnol moving circle
 	var square = function(){
 ctx.fillStyle="blue";
@@ -145,10 +138,15 @@ var dy= cir2y-yo;
 var distance= Math.sqrt(dx*dx+dy*dy);
 var sumofRadii=5.5+5;
 
-if(distance<=sumofRadii){
+if(distance<sumofRadii){
 Apple.VERI();
 Apple.draw();
 scoreOfPoints+=5
+} else if (distance===sumofRadii){
+Apple.VERI();
+Apple.draw();
+scoreOfPoints+=5
+  }
  }
 
   // game over function
@@ -162,21 +160,17 @@ scoreOfPoints+=5
   //keyboard input
 	 function a(){
   score-=5
-//battery-=0.5
 }
 function b(){
 score+=5
-//battery-=0.5
 }
 
 function c(){
 yo-=5
-//battery-=0.5
 }
 
 function d(){
 yo+=5
-//battery-=0.5	
 }
 $("#a").click(a)
 $("#b").click(b)
@@ -230,8 +224,6 @@ ctx.fillStyle="limegreen"
 ctx.fillText("Grab apples for points!",730,295)
 ctx.fillStyle="blue"
 ctx.fillText("Score: "+scoreOfPoints,665,370)
-ctx.fillStyle="Green"
-ctx.fillText("Battery level: "+ battery,700,470)
 }
 
 var scoreOfPoints=0;
@@ -272,8 +264,6 @@ circle(this.x,this.y,10,false,true)
 var Apple= new apple();
 
 
-
-	
 //circle function
 function circle(x,y,radius,fillCircle,apple){
 ctx.beginPath();
