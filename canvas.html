@@ -66,10 +66,10 @@ var battery = 100
 	CheckPOIScol(190,140);
 	CheckPOIScol(380,70);
 
-//  battery function
+/*  battery function
 	if(battery<=0){
 	gameOver()	
-	}
+	}*/
 	 
     CheckAPPLcol(Apple.x,Apple.y)	
 	Apple.draw();
@@ -81,7 +81,7 @@ var battery = 100
 	var interval4apple=setInterval(function(){
 	Apple.VERI();
 	Apple.draw();	
-	},3000)
+	},30)
 	
 function drawBorder(){
 	for(var i=0; i<48; i++){
@@ -100,7 +100,8 @@ ctx.fillRect(0,0,490,5)
 ctx.fillRect(0,490,490,5)
 ctx.fillRect(0,0,5,490)
 ctx.fillRect(490,0,5,495)
-}	  
+}
+	
 // diagnol moving circle
 	var square = function(){
 ctx.fillStyle="blue";
@@ -144,15 +145,10 @@ var dy= cir2y-yo;
 var distance= Math.sqrt(dx*dx+dy*dy);
 var sumofRadii=5.5+5;
 
-if(distance<sumofRadii){
+if(distance<=sumofRadii){
 Apple.VERI();
 Apple.draw();
 scoreOfPoints+=5
-} else if (distance===sumofRadii){
-Apple.VERI();
-Apple.draw();
-scoreOfPoints+=5
-  }
  }
 
   // game over function
