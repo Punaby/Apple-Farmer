@@ -31,7 +31,7 @@
 <!--<script src="Jquery2.1.1"></script>-->
 <script>
  var canvas= document.getElementById("canvas");
-
+var battery = 100
  var ctx = canvas.getContext("2d")
  var width=canvas.width
  var height=canvas.height
@@ -82,6 +82,7 @@
 	Apple.VERI();
 	Apple.draw();	
 	},3000)
+	
 function drawBorder(){
 	for(var i=0; i<48; i++){
 var r= i*10
@@ -274,7 +275,7 @@ circle(this.x,this.y,10,false,true)
 }
 var Apple= new apple();
 
-var battery = 100
+
 
 	
 //circle function
