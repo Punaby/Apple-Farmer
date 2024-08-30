@@ -35,7 +35,8 @@
  var ctx = canvas.getContext("2d")
  var width=canvas.width
  var height=canvas.height
-
+ var battery= 100;
+	
  // score=x,yo=y
  var score=25;
  var yo=25;
@@ -71,6 +72,9 @@
 	Apple.draw();
 	    motto();
 	 drawBorder();
+	 if(battery<=0){
+		 gameOver()
+	 }
 	},10)
 	
 	var interval4apple=setInterval(function(){
@@ -160,17 +164,21 @@ scoreOfPoints+=5
   //keyboard input
 	 function a(){
   score-=5
+	battery-=0.1
 }
 function b(){
 score+=5
+battery-=0.1
 }
 
 function c(){
 yo-=5
+battery-=0.1  
 }
 
 function d(){
 yo+=5
+  battery-=0.1
 }
 $("#a").click(a)
 $("#b").click(b)
