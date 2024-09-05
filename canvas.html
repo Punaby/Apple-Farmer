@@ -231,14 +231,22 @@ ctx.fillStyle="limegreen"
 ctx.fillText("Grab apples for points!",730,295)
 ctx.fillStyle="blue"
 ctx.fillText("Score: "+scoreOfPoints,665,370)
-ctx.fillStyle="Green"
+battry(red)
 //ctx.fillText("Battery level: "+battery,717.5,420)
+battry(green)
+}
+function battry(color){
+ctx.fillStyle=color
 ctx.fillRect(517.5,410,205,10)
 ctx.fillRect(517.5,460,205,10)
 ctx.fillRect(517.5,410,10,50)
 ctx.fillRect(717.5,410,10,60)
+ctx.fillRect(727.5,410,15,50)
+ctx.fillRect(747.5,410,15,50)
+ctx.fillRect(767.5,410,15,50)
+ctx.fillRect(787.5,410,15,50)
 }
-
+	
 var scoreOfPoints=0;
 	function apple(){
 var thisish=Math.random()*200;
