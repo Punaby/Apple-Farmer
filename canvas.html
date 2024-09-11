@@ -231,24 +231,18 @@ ctx.fillStyle="limegreen"
 ctx.fillText("Grab apples for points!",730,295)
 ctx.fillStyle="blue"
 ctx.fillText("Score: "+scoreOfPoints,665,370)
-battry("red")
-ctx.fillText("Battery level: "+battery,717.5,420)
-battry("green")
+// case
+ctx.fillRect(517.5,410,205,10)
+ctx.fillRect(517.5,460,205,10)
+ctx.fillRect(517.5,410,10,50)
+ctx.fillRect(717.5,410,10,60)
+// bars
+ctx.fillRect(537.5,410,20,50)
+ctx.fillRect(557.5,410,20,50)
+ctx.fillRect(577.5,410,20,50)
+ctx.fillRect(597.5,410,20,50)
 }
-function battry(color){
-ctx.fillStyle=color
-if(battery<80&&color=="green"){
-B=null	
-}
-var w1 = ctx.fillRect(517.5,410,205,10)
-var w2 = ctx.fillRect(517.5,460,205,10)
-var w3 = ctx.fillRect(517.5,410,10,50)
-var w4 = ctx.fillRect(717.5,410,10,60)
-var B1 = ctx.fillRect(527.5,410,15,50)
-var B2 =ctx.fillRect(547.5,410,15,50)
-var B3 = ctx.fillRect(567.5,410,15,50)
-var B = ctx.fillRect(587.5,410,15,50)
-}
+
 	
 var scoreOfPoints=0;
 	function apple(){
