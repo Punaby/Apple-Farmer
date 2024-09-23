@@ -147,7 +147,7 @@ if(distance<sumofRadii){
 Apple.VERI();
 Apple.draw();
 scoreOfPoints+=5
-battery=100
+battery+=10
 } else if (distance===sumofRadii){
 Apple.VERI();
 Apple.draw();
@@ -237,7 +237,7 @@ ctx.fillRect(517.5,460,205,10)
 ctx.fillRect(517.5,410,10,50)
 ctx.fillRect(717.5,410,10,60)
 // bars
-ctx.fillRect(527,410,battery,60)
+ctx.fillRect(527,410,battery*2,60)
 }
 
 	
