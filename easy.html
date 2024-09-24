@@ -78,18 +78,7 @@
 	Apple.draw();
 	},3000)
 function drawBorder(){
-	for(var i=0; i<48; i++){
-var r= i*10
-triangle(r,0,r+5,20,r+10,0,true,"maroon")
-triangle(r,490,r+5,470,r+10,490,true,"maroon")
-	};	
-	
-for(var j=2; j<47; j++){
-var t= j*10
-triangle(0,t,20,t+5,0,t+10,true,"maroon")
-triangle(490,t,470,t+5,490,t+10,true,"maroon")
-	};
-
+ctx.fillStyle="black"
 ctx.fillRect(0,0,490,5)
 ctx.fillRect(0,490,490,5)
 ctx.fillRect(0,0,5,490)
@@ -107,13 +96,13 @@ yo+=0.3
   // checking for collision with wall
 	function checkCollisionWALL(){
 if(score<20){
-gameOver();
+score=470
 } else if(yo<20){
-gameOver();	
+yo=470
 } else if(score>470){
-	gameOver();
+	score=0
 } else if(yo>470){
-	gameOver();
+yo=0
 }
 }
 	
