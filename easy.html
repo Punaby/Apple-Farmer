@@ -79,10 +79,10 @@
 	},3000)
 function drawBorder(){
 ctx.fillStyle="black"
-ctx.fillRect(0,0,490,5)
-ctx.fillRect(0,490,490,5)
-ctx.fillRect(0,0,5,490)
-ctx.fillRect(490,0,5,495)
+ctx.fillRect(0,0,470,5)
+ctx.fillRect(0,490,470,5)
+ctx.fillRect(0,0,5,470)
+ctx.fillRect(470,0,5,495)
 }	  
 // diagnol moving circle
 	var square = function(){
@@ -96,13 +96,13 @@ yo+=0.3
   // checking for collision with wall
 	function checkCollisionWALL(){
 if(score<20){
-score=470
+score=470;
 } else if(yo<20){
-yo=470
-} else if(score>470){
-	score=0
-} else if(yo>470){
-yo=0
+yo=470;
+} else if(score>460){
+	score=0;
+} else if(yo>460){
+yo=0;
 }
 }
 	
