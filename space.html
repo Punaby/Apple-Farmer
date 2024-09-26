@@ -1,0 +1,273 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hungry Apple Farmer</title>
+<style>
+      button{
+	    margin-left:75px;
+		margin-right:0px;
+        width:40%;
+        height:30px;
+        background-color:blue;
+        border-radius:50px;
+		font-size:20px;
+      }
+	  
+	 button:hover {
+	  background-color: limegreen;
+	  }
+	 
+</style>
+</head>
+<body>
+<canvas id="canvas" class="canvas" width="1000" height="625"></canvas>
+	<div>
+<button id="e" class="arrow">Play Again!</button>
+<a href="htpe.html"><button>How to play?</button></a>
+<a href="htpe.html"><button>Change Difficulty</button></a>
+	</div>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>	
+<!--<script src="Jquery2.1.1"></script>-->
+<script>
+ var canvas= document.getElementById("canvas");
+
+ var ctx = canvas.getContext("2d")
+ var width=canvas.width
+ var height=canvas.height
+	
+ // score=x,yo=y
+ var score=25;
+ var yo=25;
+   // interval
+ var interval=setInterval(function() {
+
+  ctx.clearRect(0,0,800,500)
+   square();
+	 checkCollisionWALL();
+	 
+	   circle(65,130,5,true,false);
+   circle(65,320,5,true,false);
+   circle(240,240,5,true,false);
+   circle(295,95,5,true,false);
+   circle(405,180,5,true,false);
+   circle(330,335,5,true,false); 
+   circle(190,140,5,true,false);
+   circle(150,250,5,true,false);
+   circle(380,70,5,true,false);
+	 
+    CheckPOIScol(330,335)
+    CheckPOIScol(150,250);
+    CheckPOIScol(65,320);
+    CheckPOIScol(240,240);
+	CheckPOIScol(295,95);
+	CheckPOIScol(405,180);
+	CheckPOIScol(65,130);
+	CheckPOIScol(190,140);
+	CheckPOIScol(380,70);
+
+	 
+    CheckAPPLcol(Apple.x,Apple.y)	
+	Apple.draw();
+	    motto();
+	 drawBorder();
+	},10)
+	
+	var interval4apple=setInterval(function(){
+	Apple.VERI();
+	Apple.draw();
+	},3000)
+function drawBorder(){
+ctx.fillStyle="black"
+ctx.fillRect(0,0,470,5)
+ctx.fillRect(0,470,470,5)
+ctx.fillRect(0,0,5,470)
+ctx.fillRect(470,0,5,475)
+}	  
+// diagnol moving circle
+	var square = function(){
+ctx.fillStyle="blue";
+     circle(score,yo,5.5,false);
+};
+
+  // checking for collision with wall
+	function checkCollisionWALL(){
+if(score<20){
+score=460;
+} else if(yo<20){
+yo=460;
+} else if(score>470){
+	score=21;
+} else if(yo>470){
+yo=21;
+}
+}
+	
+// poison checking
+	function CheckPOIScol(cir2x,cir2y) {
+var dx= cir2x-score;
+var dy= cir2y-yo;
+var distance= Math.sqrt(dx*dx+dy*dy);
+var sumofRadii=5.5+5;
+
+if(distance<sumofRadii){
+gameOver();
+} else if (distance===sumofRadii){
+alert("collision")
+  }
+ }
+	
+// apple checking
+	function CheckAPPLcol(cir2x,cir2y) {
+var dx= cir2x-score;
+var dy= cir2y-yo;
+var distance= Math.sqrt(dx*dx+dy*dy);
+var sumofRadii=5.5+5;
+
+if(distance<sumofRadii){
+Apple.VERI();
+Apple.draw();
+scoreOfPoints+=5
+} else if (distance===sumofRadii){
+Apple.VERI();
+Apple.draw();
+scoreOfPoints+=5
+  }
+ }
+
+  // game over function
+ 	 function gameOver(){
+     ctx.font="50px Helvitica";
+   ctx.fillStyle="red"
+   ctx.fillText("GAME OVER!",400,225)
+	 clearInterval(interval)
+	 clearInterval(interval4apple)
+	  }
+  //keyboard input
+	 function a(){
+  score-=5
+}
+function b(){
+score+=5
+}
+
+function c(){
+yo-=5
+}
+
+function d(){
+yo+=5
+}
+$("#a").click(a)
+$("#b").click(b)
+$("#c").click(c)
+$("#d").click(d)
+$("#e").click(reload)
+
+	function setDirection(direction){
+if(direction==="up"){
+c();
+}else if(direction==="down"){
+d();
+}else if(direction==="left"){
+a();
+}else if(direction==="right"){
+b();
+}
+};
+var keyActions={
+37:"left",
+38:"up",
+39:"right",
+40:"down",
+87:"up",
+65:"left",
+83:"down",
+68:"right"
+};
+
+$("body").keydown(function (event) {
+var direction=keyActions[event.keyCode];
+setDirection(direction);
+});
+
+  // reload
+  function reload(){
+  location.reload()
+  };
+  
+// score
+	var motto= function(){
+ctx.font="20px arial";
+ctx.textAlign="right";
+ctx.fillStyle="grey";
+ctx.fillText('Tips and stats',690,35)
+ctx.fillStyle="maroon";
+ctx.fillText("Don't touch the poison!",730,95)
+ctx.fillStyle="black"
+ctx.fillText("Don't hit the spikes!",717.5,195)
+ctx.fillStyle="limegreen"
+ctx.fillText("Grab apples for points!",730,295)
+ctx.fillStyle="blue"
+ctx.fillText("Score: "+scoreOfPoints,665,370)
+}
+
+	
+var scoreOfPoints=0;
+	function apple(){
+var thisish=Math.random()*200;
+var thisis=Math.random()*200;
+circle(thisish,thisis,5,false)
+}
+// apple function(s)
+	function applex(){
+var xapple= Math.random()*470
+if(xapple<=20){
+	xapple+20;
+}
+return(xapple)
+}
+
+	function appley(){
+var yapple= Math.random()*470
+		if(yapple<=20){
+	yapple+20;
+}
+return(yapple)
+}
+
+var apple=  function(){
+this.x;
+this.y;
+}
+
+	apple.prototype.VERI= function(){
+this.y=appley();
+this.x=applex();
+};
+	apple.prototype.draw=function(){
+circle(this.x,this.y,10,false,true)
+}
+var Apple= new apple();
+
+
+//circle function
+function circle(x,y,radius,fillCircle,apple){
+ctx.beginPath();
+ctx.arc(x,y,radius,0,Math.PI*2,null)
+if(fillCircle){
+ctx.fillStyle="maroon"
+ctx.fill();
+} else if(apple){
+ctx.fillStyle=" limegreen";
+ctx.fill();
+}else{
+ctx.fillStyle="blue";
+ctx.fill();
+}
+}
+</script>
+</body>
+</html>
+
