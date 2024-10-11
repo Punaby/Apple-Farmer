@@ -48,34 +48,39 @@
    square();
 	 checkCollisionWALL();
 	 
-	   circle(x,130,5,true,false);
+   circle(x,20,5,true,false);
+   circle(x,120,5,true,false);
+   circle(x,220,5,true,false);
    circle(x,320,5,true,false);
-   circle(x,240,5,true,false);
-   circle(x,95,5,true,false);
-   circle(x,180,5,true,false);
-   circle(x,335,5,true,false); 
-   circle(x,140,5,true,false);
-   circle(x,250,5,true,false);
+   circle(x,420,5,true,false); 
    circle(x,70,5,true,false);
+   circle(x,170,5,true,false);
+   circle(x,270,5,true,false);
+   circle(x,370,5,true,false);
+   circle(x,470,5,true,false); 
 	 
-    CheckPOIScol(x,335)
-    CheckPOIScol(x,250);
+    CheckPOIScol(x,20)
+    CheckPOIScol(x,120);
+    CheckPOIScol(x,220);
     CheckPOIScol(x,320);
-    CheckPOIScol(x,240);
-	CheckPOIScol(x,95);
-	CheckPOIScol(x,180);
-	CheckPOIScol(x,130);
-	CheckPOIScol(x,140);
-	CheckPOIScol(x,70);
+    CheckPOIScol(x,420);
+    CheckPOIScol(x,70)
+    CheckPOIScol(x,170);
+    CheckPOIScol(x,270);
+    CheckPOIScol(x,370);
+    CheckPOIScol(x,470);
 
-	 
+   
+
+	 poisonmove();
     CheckAPPLcol(Apple.x,Apple.y)	
 	Apple.draw();
 	    motto();
 	 drawBorder();
+x=x+xv
 	},10)
 
-var x= 20
+var x= 4
   
 	var interval4apple=setInterval(function(){
 	Apple.VERI();
@@ -96,6 +101,14 @@ yo+=0.3
  score+=0.3
   
 };
+var xv= 1
+function poisonmove(){
+if(x>470){
+xv=-1
+} else if (x<5){
+xv=1
+}
+}
 
   // checking for collision with wall
 	function checkCollisionWALL(){
