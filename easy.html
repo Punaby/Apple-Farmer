@@ -72,6 +72,8 @@
 	Apple.draw();
 	    motto();
 	 drawBorder();
+	 yo+0.3
+	 score+0.3
 	},10)
 	
 	var interval4apple=setInterval(function(){
@@ -88,9 +90,8 @@ ctx.fillRect(470,0,5,475)
 // diagnol moving circle
 	var square = function(){
 this.image="2025_04_22_0ep_Kleki.png"
-yo+=0.3
- score+=0.3
-  
+this.x = score
+this.y = yo
 };
 
   // checking for collision with wall
